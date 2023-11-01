@@ -36,7 +36,7 @@ class User {
 
   static async authenticate(username, password) { 
     const result = await db.query(
-      "SELECT password FROM  users WHERE uesrname = $1",
+      "SELECT password FROM users WHERE username = $1",
       [username]);
     let user = result.rows[0];
 
@@ -64,7 +64,7 @@ class User {
   static async all() { 
     const result = await db.query(
         `SELECT username,
-                firstname,
+                first_name,
                 last_name,
                 phone
             FROM users
